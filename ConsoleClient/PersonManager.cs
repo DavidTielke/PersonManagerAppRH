@@ -5,13 +5,13 @@ using System.Text;
 
 namespace ConsoleClient
 {
-    public class PersonManager
+    public class PersonManager : IPersonManager
     {
-        private PersonRepository _personRepository;
+        private IPersonRepository _personRepository;
 
-        public PersonManager()
+        public PersonManager(IPersonRepository personRepository)
         {
-            _personRepository = new PersonRepository();
+            _personRepository = personRepository;
         }
 
         public List<Person> GetAllAdults()

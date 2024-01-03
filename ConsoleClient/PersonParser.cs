@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ConsoleClient
 {
-    public class PersonParser
+    public class PersonParser : IPersonParser
     {
         public List<Person> ParseFromCSV(List<string> lines)
         {

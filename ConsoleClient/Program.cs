@@ -4,7 +4,10 @@
     {
         static void Main(string[] args)
         {
-           var personManager = new PersonManager();
+            var fileLoader = new FileLoader();
+            var personParser = new PersonParser();
+            var repository = new PersonRepository(fileLoader, personParser);
+           var personManager = new PersonManager(repository);
 
            var adults = personManager.GetAllAdults();
            Console.WriteLine($"### ERWACHSENE ({adults.Count})###");

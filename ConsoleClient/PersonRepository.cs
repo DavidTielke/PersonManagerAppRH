@@ -5,15 +5,15 @@ using System.Text;
 
 namespace ConsoleClient
 {
-    public class PersonRepository
+    public class PersonRepository : IPersonRepository
     {
-        private FileLoader _fileLoader;
-        private PersonParser _personParser;
+        private IFileLoader _fileLoader;
+        private IPersonParser _personParser;
 
-        public PersonRepository()
+        public PersonRepository(IFileLoader fileLoader, IPersonParser personParser)
         {
-            _fileLoader = new FileLoader();
-            _personParser = new PersonParser();
+            _fileLoader = fileLoader;
+            _personParser = personParser;
         }
 
         public List<Person> GetAllPersons()

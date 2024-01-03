@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ConsoleClient
 {
-    public class FileLoader
+    public class FileLoader : IFileLoader
     {
         public List<string> LoadAllLines()
         {

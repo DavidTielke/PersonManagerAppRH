@@ -1,18 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="ConsoleClient.FileLoader">
-    <Position X="1.75" Y="0.75" Width="1.5" />
+    <Position X="7.25" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
       <FileName>FileLoader.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="ConsoleClient.PersonParser">
-    <Position X="1.75" Y="4" Width="1.5" />
+    <Position X="2.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>PersonParser.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="ConsoleClient.Person">
     <Position X="11" Y="1.25" Width="1.5" />
@@ -27,10 +29,7 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAACAAAIA=</HashCode>
       <FileName>PersonRepository.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="_fileLoader" />
-      <Field Name="_personParser" />
-    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="ConsoleClient.PersonManager">
     <Position X="7.25" Y="1.25" Width="1.5" />
@@ -38,9 +37,7 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAABAAAIAAAAAAAAAAAA=</HashCode>
       <FileName>PersonManager.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="_personRepository" />
-    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="ConsoleClient.Program">
     <Position X="10" Y="3.5" Width="1.5" />

@@ -16,6 +16,11 @@
   </Class>
   <Class Name="ConsoleClient.PersonRepository">
     <Position X="6.75" Y="2" Width="1.5" />
+    <AssociationLine Name="_fileLoader" Type="ConsoleClient.FileLoader">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.286" Y="0.112" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAACAAAIA=</HashCode>
       <FileName>PersonRepository.cs</FileName>
