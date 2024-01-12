@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 
@@ -8,17 +9,19 @@ namespace ConsoleClient
     public class PersonManager : IPersonManager
     {
         private IPersonRepository _personRepository;
+        private readonly int AGE_TRESHOLD;
 
-        public PersonManager(IPersonRepository personRepository)
+        public PersonManager(IPersonRepository personRepository, IConfigurator config)
         {
             _personRepository = personRepository;
+            AGE_TRESHOLD = config.Get<int>("AgeTreshold");
         }
 
         public List<Person> GetAllAdults()
         {
             var adults = _personRepository
                 .GetAllPersons()
-                .Where(p => p.Age >= 18)
+                .Where(p => p.Age >= AGE_TRESHOLD) // Config
                 .ToList();
             return adults;
         }
@@ -27,7 +30,7 @@ namespace ConsoleClient
         {
             var children = _personRepository
                 .GetAllPersons()
-                .Where(p => p.Age < 18)
+                .Where(p => p.Age < AGE_TRESHOLD)
                 .ToList();
             return children;
         }

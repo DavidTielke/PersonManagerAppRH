@@ -7,9 +7,9 @@ namespace ConsoleClient
 {
     public class FileLoader : IFileLoader
     {
-        public List<string> LoadAllLines()
+        public List<string> LoadAllLines(string path)
         {
-            return File.ReadAllLines("data.csv").ToList();
+            return File.ReadAllLines(path).ToList();
         }
     }
 }
