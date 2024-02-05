@@ -26,7 +26,7 @@ namespace ConsoleClient
         public List<Person> GetAllPersons()
         {
             var path = _config.Get<string>(DataConfigConstants.FILEPATH); // Config
-            var lines = _fileLoader.LoadAllLines();
+            var lines = _fileLoader.LoadAllLines(path);
             var persons = _personParser.ParseFromCSV(lines);
             return persons;
         }

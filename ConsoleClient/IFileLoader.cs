@@ -2,5 +2,5 @@
 
 public interface IFileLoader
 {
-    List<string> LoadAllLines();
+    List<string> LoadAllLines(string path);
 }
