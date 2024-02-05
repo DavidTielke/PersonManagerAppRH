@@ -17,7 +17,7 @@ namespace UnitTestConsole
 
         static void AssertDreieck(int a, int b, int c, DreieckTyp extected)
         {
-            var dreieck = new Dreieck();
+            var dreieck = new DreieckTypChecker();
 
             var actual = dreieck.GetTyp(a, b, c);
 
@@ -36,32 +36,29 @@ namespace UnitTestConsole
         }
     }
 
-    public class Dreieck
+    public class DreieckTypChecker
     {
         public DreieckTyp GetTyp(int a, int b, int c)
         {
-            var sides = new long[] { a, b, c }.Order().ToArray();
-            var minSide1 = sides[0];
-            var minSide2 = sides[1];
-            var maxSide = sides[2];
-
+            var sidesOrderedDesc = new long[] { a, b, c }.Order().ToArray();
+            var minSide1 = sidesOrderedDesc[0];
+            var minSide2 = sidesOrderedDesc[1];
+            var maxSide = sidesOrderedDesc[2];
             var isNotConstructable = minSide1 + minSide2 <= maxSide;
-            if (isNotConstructable)
-            {
-                throw new ArgumentException($"{a},{b},{c} is not a constructable triangle");
-            }
-            
-            if (a <= 0 || b <= 0 || c <= 0)
+            var atLeastOneSideZeroOrNegative = a <= 0 || b <= 0 || c <= 0;
+            if (isNotConstructable || atLeastOneSideZeroOrNegative)
             {
                 throw new ArgumentException($"{a},{b},{c} is not a constructable triangle");
             }
 
-            if (a == b && b == c && c == a)
+            var allSidedEqual = a == b && b == c && c == a;
+            if (allSidedEqual)
             {
                 return DreieckTyp.Gleichseitig;
             }
 
-            if (a == b || a == c || b == c)
+            var twoSidesEqual = a == b || a == c || b == c;
+            if (twoSidesEqual)
             {
                 return DreieckTyp.Gleichschenklig;
             }

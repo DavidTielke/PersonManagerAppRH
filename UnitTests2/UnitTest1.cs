@@ -1,9 +1,9 @@
 namespace UnitTests2
 {
     [TestFixture]
-    public class DreieckTests
+    public class DreieckTypCheckerTests
     {
-        private Dreieck _sut;
+        private DreieckTypChecker _sut;
 
         [OneTimeSetUp]
         public static void OneTimeSetUp()
@@ -20,7 +20,7 @@ namespace UnitTests2
         [SetUp]
         public void SetUp()
         {
-            _sut = new Dreieck();
+            _sut = new DreieckTypChecker();
         }
 
         [TearDown]
