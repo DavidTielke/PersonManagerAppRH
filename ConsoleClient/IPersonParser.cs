@@ -2,5 +2,5 @@
 
 public interface IPersonParser
 {
-    List<Person> ParseFromCSV(List<string> lines);
+    List<Person> ParseFromCSV(IEnumerable<string> lines);
 }

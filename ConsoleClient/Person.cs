@@ -24,5 +24,17 @@ namespace ConsoleClient
             get;
             set;
         }
+
+        public Person(int id, string name, int age)
+        {
+            Id = id;
+            Name = name;
+            Age = age;
+        }
+
+        public Person()
+        {
+            
+        }
     }
 }

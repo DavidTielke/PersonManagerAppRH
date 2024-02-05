@@ -7,21 +7,12 @@ namespace ConsoleClient
 {
     public class PersonParser : IPersonParser
     {
-        private readonly IConfigurator _config;
-
-        public PersonParser(IConfigurator config)
+        public List<Person> ParseFromCSV(IEnumerable<string> lines)
         {
-            _config = config;
-        }
+            ArgumentNullException.ThrowIfNull(lines);
 
-        public List<Person> ParseFromCSV(List<string> lines)
-        {
             var persons = lines
-                .Select(l =>
-                {
-                    var separator = _config.Get<string>("Separator"); // Config
-                    return l.Split(separator);
-                })
+                .Select(l => l.Split(","))
                 .Select(p => new Person
                 {
                     Id = int.Parse(p[0]),
