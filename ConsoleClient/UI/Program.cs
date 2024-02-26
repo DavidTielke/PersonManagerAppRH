@@ -15,6 +15,7 @@ namespace ConsoleClient.UI
             kernel.Bind<IPersonConverter>().To<PersonConverter>();
             kernel.Bind<IPersonParser>().To<PersonParser>();
             kernel.Bind<IFileStorer>().To<FileStorer>();
+            kernel.Bind<IPersonDataValidator>().To<PersonDataValidator>();
             kernel.Bind<ILogger>().To<Logger>();
             kernel.Bind<IConfigurator>().To<Configurator>().InSingletonScope();
 
