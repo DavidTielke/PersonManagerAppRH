@@ -11,10 +11,16 @@ namespace ConsoleClient
         private IPersonRepository _personRepository;
         private readonly int AGE_TRESHOLD;
 
-        public PersonManager(IPersonRepository personRepository, IConfigurator config)
+        public PersonManager(IPersonRepository personRepository, 
+            IConfigurator config)
         {
             _personRepository = personRepository;
             AGE_TRESHOLD = config.Get<int>("AgeTreshold");
+        }
+
+        public void Add(Person person)
+        {
+            _personRepository.Insert(person);
         }
 
         public List<Person> GetAllAdults()

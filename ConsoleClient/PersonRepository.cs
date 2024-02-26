@@ -5,28 +5,43 @@ using System.Text;
 
 namespace ConsoleClient
 {
-    public static class DataConfigConstants
-    {
-        public const string FILEPATH = "FilePath";
-    }
-
     public class PersonRepository : IPersonRepository
     {
-        private IFileLoader _fileLoader;
+        private IFileStorer _fileStorer;
         private IPersonParser _personParser;
         private readonly IConfigurator _config;
+        private readonly IPersonConverter _converter;
 
-        public PersonRepository(IFileLoader fileLoader, IPersonParser personParser, IConfigurator config )
+        public PersonRepository(IFileStorer fileStorer, 
+            IPersonParser personParser, 
+            IConfigurator config,
+            IPersonConverter converter)
         {
-            _fileLoader = fileLoader;
+            _fileStorer = fileStorer;
             _personParser = personParser;
             _config = config;
+            _converter = converter;
+        }
+
+        private string Path
+        {
+            get
+            {
+                return _config.Get<string>(DataConfigConstants.FILEPATH);
+            }
+        }
+
+        public void Insert(Person person)
+        {
+            var csvData = _converter.ToCsv(person);
+            var allLines = _fileStorer.LoadAllLines(Path);
+            allLines.Add(csvData);
+            _fileStorer.WriteAllLines(Path, allLines);
         }
 
         public List<Person> GetAllPersons()
         {
-            var path = _config.Get<string>(DataConfigConstants.FILEPATH); // Config
-            var lines = _fileLoader.LoadAllLines(path);
+            var lines = _fileStorer.LoadAllLines(Path);
             var persons = _personParser.ParseFromCSV(lines);
             return persons;
         }

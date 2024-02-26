@@ -6,11 +6,16 @@ using System.Text;
 namespace ConsoleClient
 {
     // T-System
-    public class FileLoader : IFileLoader
+    public class FileStorer : IFileStorer
     {
         public List<string> LoadAllLines(string path)
         {
             return File.ReadAllLines(path).ToList();
+        }
+
+        public void WriteAllLines(string path, List<string> lines)
+        {
+            File.WriteAllLines(path, lines);
         }
     }
 }

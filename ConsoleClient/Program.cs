@@ -10,8 +10,9 @@ namespace ConsoleClient
 
             kernel.Bind<IPersonManager>().To<PersonManager>();
             kernel.Bind<IPersonRepository>().To<PersonRepository>();
+            kernel.Bind<IPersonConverter>().To<PersonConverter>();
             kernel.Bind<IPersonParser>().To<PersonParser>();
-            kernel.Bind<IFileLoader>().To<FileLoader>();
+            kernel.Bind<IFileStorer>().To<FileStorer>();
             kernel.Bind<ILogger>().To<Logger>();
             kernel.Bind<IConfigurator>().To<Configurator>().InSingletonScope();
             kernel.Bind<IAgeProvider>().To<AgeProvider>().InSingletonScope();
@@ -22,6 +23,9 @@ namespace ConsoleClient
             config.Set("Separator", ",");
 
             var manager = kernel.Get<IPersonManager>();
+
+            var person = new Person(5, "Maus", 0);
+            manager.Add(person);
 
 
             var adults = manager.GetAllAdults();

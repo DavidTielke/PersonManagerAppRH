@@ -1,6 +1,3 @@
-using ConsoleClient;
-using UnitTests.Mocks;
-
 namespace UnitTests;
 
 public class PersonManagerTests
@@ -18,6 +15,7 @@ public class PersonManagerTests
     }
 
     [Test]
+    [Category("GetAllAdults")]
     public void GetAllAdults_2Adults2ChildrenInRepo_2AdultsReturned()
     {
         var expected = 2;
