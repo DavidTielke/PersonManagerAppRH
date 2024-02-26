@@ -1,4 +1,4 @@
-﻿namespace ConsoleClient.CrossCutting.Configuration;
+﻿namespace DavidTielke.PersonManagerApp.CrossCutting.Configuration;
 
 public static class DataConfigConstants
 {

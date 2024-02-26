@@ -1,6 +1,6 @@
-﻿using ConsoleClient.CrossCutting.DataClasses;
+﻿using DavidTielke.PersonManagerApp.CrossCutting.DataClasses;
 
-namespace ConsoleClient.Logic.PersonManagement;
+namespace DavidTielke.PersonManagerApp.Backend.Logic.PersonManagement;
 
 public interface IPersonLogicValidator
 {

@@ -1,4 +1,4 @@
-using ConsoleClient.CrossCutting.Configuration;
+using DavidTielke.PersonManagerApp.CrossCutting.Configuration;
 
 namespace UnitTests.Mocks;
 

@@ -1,4 +1,4 @@
-﻿namespace ConsoleClient.CrossCutting.Logging;
+﻿namespace DavidTielke.PersonManagerApp.CrossCutting.Logging;
 
 public interface ILogger
 {

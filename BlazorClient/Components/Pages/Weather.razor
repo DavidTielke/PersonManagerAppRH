@@ -1,13 +1,16 @@
-﻿@page "/weather"
+﻿@page "/persons"
+@using DavidTielke.PersonManagerApp.CrossCutting.DataClasses
+@using DavidTielke.PersonManagerApp.Backend.Logic.PersonManagement
 @attribute [StreamRendering]
+@inject IPersonManager personManager
 
-<PageTitle>Weather</PageTitle>
+<PageTitle>Personen</PageTitle>
 
-<h1>Weather</h1>
+<h1>Personen</h1>
 
-<p>This component demonstrates showing data.</p>
+<p>Alle Erwachsenen in der Datenbank</p>
 
-@if (forecasts == null)
+@if (adults == null)
 {
     <p><em>Loading...</em></p>
 }
@@ -16,49 +19,64 @@ else
     <table class="table">
         <thead>
             <tr>
-                <th>Date</th>
-                <th>Temp. (C)</th>
-                <th>Temp. (F)</th>
-                <th>Summary</th>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Age</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var forecast in forecasts)
+            @foreach (var person in adults)
             {
                 <tr>
-                    <td>@forecast.Date.ToShortDateString()</td>
-                    <td>@forecast.TemperatureC</td>
-                    <td>@forecast.TemperatureF</td>
-                    <td>@forecast.Summary</td>
+                    <td>@person.Id</td>
+                    <td>@person.Name</td>
+                    <td>@person.Age</td>
                 </tr>
             }
         </tbody>
     </table>
 }
 
+<p>Alle Kinder in der Datenbank</p>
+
+@if (children == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var person in children)
+        {
+            <tr>
+                <td>@person.Id</td>
+                <td>@person.Name</td>
+                <td>@person.Age</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+
 @code {
-    private WeatherForecast[]? forecasts;
+
+    private List<Person> adults = new List<Person>();
+    private List<Person> children = new List<Person>();
+
+
 
     protected override async Task OnInitializedAsync()
     {
-        // Simulate asynchronous loading to demonstrate streaming rendering
-        await Task.Delay(500);
-
-        var startDate = DateOnly.FromDateTime(DateTime.Now);
-        var summaries = new[] { "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching" };
-        forecasts = Enumerable.Range(1, 5).Select(index => new WeatherForecast
-        {
-            Date = startDate.AddDays(index),
-            TemperatureC = Random.Shared.Next(-20, 55),
-            Summary = summaries[Random.Shared.Next(summaries.Length)]
-        }).ToArray();
-    }
-
-    private class WeatherForecast
-    {
-        public DateOnly Date { get; set; }
-        public int TemperatureC { get; set; }
-        public string? Summary { get; set; }
-        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+        adults = personManager.GetAllAdults();
+        children = personManager.GetAllChildren();
     }
 }

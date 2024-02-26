@@ -1,5 +1,5 @@
-using ConsoleClient.CrossCutting.DataClasses;
-using ConsoleClient.Data.DataAccess;
+using DavidTielke.PersonManagerApp.Backend.Data.DataAccess;
+using DavidTielke.PersonManagerApp.CrossCutting.DataClasses;
 
 namespace UnitTests.Mocks
 {

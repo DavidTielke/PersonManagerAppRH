@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace ConsoleClient.Data.FileStorage
+﻿namespace DavidTielke.PersonManagerApp.Backend.Data.FileStorage
 {
     // T-System
     public class FileStorer : IFileStorer

@@ -1,4 +1,4 @@
-﻿namespace ConsoleClient.CrossCutting.Configuration;
+﻿namespace DavidTielke.PersonManagerApp.CrossCutting.Configuration;
 
 // OCP - Open Closed Principle
 // ISP - Interface Segregation Principle

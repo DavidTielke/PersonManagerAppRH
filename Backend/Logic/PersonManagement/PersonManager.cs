@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Dynamic;
-using System.Linq;
-using System.Text;
-using ConsoleClient.CrossCutting.Configuration;
-using ConsoleClient.CrossCutting.DataClasses;
-using ConsoleClient.Data.DataAccess;
+﻿using DavidTielke.PersonManagerApp.Backend.Data.DataAccess;
+using DavidTielke.PersonManagerApp.CrossCutting.Configuration;
+using DavidTielke.PersonManagerApp.CrossCutting.DataClasses;
 
-namespace ConsoleClient.Logic.PersonManagement
+namespace DavidTielke.PersonManagerApp.Backend.Logic.PersonManagement
 {
     public class PersonManager : IPersonManager
     {

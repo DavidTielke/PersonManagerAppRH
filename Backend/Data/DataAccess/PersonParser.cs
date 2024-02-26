@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ConsoleClient.CrossCutting.DataClasses;
+﻿using DavidTielke.PersonManagerApp.CrossCutting.DataClasses;
 
-namespace ConsoleClient.Data.DataAccess
+namespace DavidTielke.PersonManagerApp.Backend.Data.DataAccess
 {
     public class PersonParser : IPersonParser
     {

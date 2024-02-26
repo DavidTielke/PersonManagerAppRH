@@ -1,5 +1,5 @@
-using ConsoleClient.CrossCutting.DataClasses;
-using ConsoleClient.Logic.PersonManagement;
+using DavidTielke.PersonManagerApp.Backend.Logic.PersonManagement;
+using DavidTielke.PersonManagerApp.CrossCutting.DataClasses;
 
 namespace UnitTests;
 

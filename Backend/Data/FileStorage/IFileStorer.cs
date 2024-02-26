@@ -1,4 +1,4 @@
-﻿namespace ConsoleClient.Data.FileStorage;
+﻿namespace DavidTielke.PersonManagerApp.Backend.Data.FileStorage;
 
 public interface IFileStorer
 {

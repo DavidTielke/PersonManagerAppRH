@@ -1,4 +1,4 @@
-﻿using ConsoleClient.Data.DataAccess;
+﻿using DavidTielke.PersonManagerApp.Backend.Data.DataAccess;
 
 namespace UnitTests
 {

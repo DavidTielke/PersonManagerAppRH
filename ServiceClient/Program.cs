@@ -1,11 +1,14 @@
-using BlazorClient.Components;
+
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using System.ComponentModel;
 using DavidTielke.PersonManagerApp.Backend.Data.DataAccess;
 using DavidTielke.PersonManagerApp.Backend.Data.FileStorage;
 using DavidTielke.PersonManagerApp.Backend.Logic.PersonManagement;
 using DavidTielke.PersonManagerApp.CrossCutting.Configuration;
 using DavidTielke.PersonManagerApp.CrossCutting.Logging;
 
-namespace BlazorClient
+namespace ServiceClient
 {
     public class Program
     {
@@ -14,8 +17,13 @@ namespace BlazorClient
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddRazorComponents()
-                .AddInteractiveServerComponents();
+
+            builder.Services.AddControllers();
+            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddSwaggerGen();
+
+
             // Dependency Injection Setup
             builder.Services.AddScoped<IPersonManager, PersonManager>();
             builder.Services.AddScoped<IPersonRepository, PersonRepository>();
@@ -25,7 +33,7 @@ namespace BlazorClient
             builder.Services.AddScoped<IPersonDataValidator, PersonDataValidator>();
             builder.Services.AddScoped<IPersonLogicValidator, PersonLogicValidator>();
             builder.Services.AddScoped<DavidTielke.PersonManagerApp.CrossCutting.Logging.ILogger, Logger>();
-           
+
             // Singleton-Registrierung für IConfigurator
             builder.Services.AddSingleton<IConfigurator, Configurator>();
 
@@ -36,22 +44,19 @@ namespace BlazorClient
             config.Set(DataConfigConstants.FILEPATH, "data.csv");
             config.Set("Separator", ",");
 
-
             // Configure the HTTP request pipeline.
-            if (!app.Environment.IsDevelopment())
+            if (app.Environment.IsDevelopment())
             {
-                app.UseExceptionHandler("/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
+                app.UseSwagger();
+                app.UseSwaggerUI();
             }
 
             app.UseHttpsRedirection();
 
-            app.UseStaticFiles();
-            app.UseAntiforgery();
+            app.UseAuthorization();
 
-            app.MapRazorComponents<App>()
-                .AddInteractiveServerRenderMode();
+
+            app.MapControllers();
 
             app.Run();
         }

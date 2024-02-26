@@ -1,13 +1,11 @@
-﻿using ConsoleClient.CrossCutting;
-using ConsoleClient.CrossCutting.Configuration;
-using ConsoleClient.CrossCutting.DataClasses;
-using ConsoleClient.CrossCutting.Logging;
-using ConsoleClient.Data.DataAccess;
-using ConsoleClient.Data.FileStorage;
-using ConsoleClient.Logic.PersonManagement;
+﻿using DavidTielke.PersonManagerApp.Backend.Data.DataAccess;
+using DavidTielke.PersonManagerApp.Backend.Data.FileStorage;
+using DavidTielke.PersonManagerApp.Backend.Logic.PersonManagement;
+using DavidTielke.PersonManagerApp.CrossCutting.Configuration;
+using DavidTielke.PersonManagerApp.CrossCutting.Logging;
 using Ninject;
 
-namespace ConsoleClient.UI
+namespace DavidTielke.PersonManagerApp.Frontend.ConsoleClient
 {
     internal class Program
     {

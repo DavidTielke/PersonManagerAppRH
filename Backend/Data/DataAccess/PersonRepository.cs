@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ConsoleClient.CrossCutting.Configuration;
-using ConsoleClient.CrossCutting.DataClasses;
-using ConsoleClient.Data.FileStorage;
+﻿using DavidTielke.PersonManagerApp.Backend.Data.FileStorage;
+using DavidTielke.PersonManagerApp.CrossCutting.Configuration;
+using DavidTielke.PersonManagerApp.CrossCutting.DataClasses;
 
-namespace ConsoleClient.Data.DataAccess
+namespace DavidTielke.PersonManagerApp.Backend.Data.DataAccess
 {
     public class PersonRepository : IPersonRepository
     {
