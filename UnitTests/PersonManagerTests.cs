@@ -1,4 +1,5 @@
-using ConsoleClient.Logic;
+using ConsoleClient.CrossCutting.DataClasses;
+using ConsoleClient.Logic.PersonManagement;
 
 namespace UnitTests;
 
@@ -13,7 +14,7 @@ public class PersonManagerTests
     {
         _repoMock = new PersonRepoMock();
         _configMock = new ConfigMock();
-        _sut = new PersonManager(_repoMock, _configMock);
+        _sut = new PersonManager(_repoMock, _configMock, new PersonLogicValidator());
     }
 
     [Test]

@@ -1,4 +1,4 @@
-﻿using ConsoleClient.Data;
+﻿using ConsoleClient.Data.DataAccess;
 
 namespace UnitTests
 {

@@ -1,5 +1,10 @@
-﻿using ConsoleClient.Data;
-using ConsoleClient.Logic;
+﻿using ConsoleClient.CrossCutting;
+using ConsoleClient.CrossCutting.Configuration;
+using ConsoleClient.CrossCutting.DataClasses;
+using ConsoleClient.CrossCutting.Logging;
+using ConsoleClient.Data.DataAccess;
+using ConsoleClient.Data.FileStorage;
+using ConsoleClient.Logic.PersonManagement;
 using Ninject;
 
 namespace ConsoleClient.UI
@@ -27,8 +32,8 @@ namespace ConsoleClient.UI
 
             var manager = kernel.Get<IPersonManager>();
 
-            var person = new Person(5, "Maus", 0);
-            manager.Add(person);
+            //var person = new Person(5, "Maus", 0);
+            //manager.Add(person);
 
 
             var adults = manager.GetAllAdults();

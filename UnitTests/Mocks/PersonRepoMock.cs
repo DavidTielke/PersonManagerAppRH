@@ -1,4 +1,5 @@
-using ConsoleClient.Data;
+using ConsoleClient.CrossCutting.DataClasses;
+using ConsoleClient.Data.DataAccess;
 
 namespace UnitTests.Mocks
 {
@@ -8,6 +9,11 @@ namespace UnitTests.Mocks
         public List<Person> GetAllPersons()
         {
             return Persons;
+        }
+
+        public void Insert(Person person)
+        {
+            
         }
     }
 }

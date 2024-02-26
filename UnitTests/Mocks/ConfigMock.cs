@@ -1,4 +1,4 @@
-using ConsoleClient;
+using ConsoleClient.CrossCutting.Configuration;
 
 namespace UnitTests.Mocks;
 
