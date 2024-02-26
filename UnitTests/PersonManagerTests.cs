@@ -1,3 +1,5 @@
+using ConsoleClient.Logic;
+
 namespace UnitTests;
 
 public class PersonManagerTests

@@ -1,6 +1,8 @@
-﻿using Ninject;
+﻿using ConsoleClient.Data;
+using ConsoleClient.Logic;
+using Ninject;
 
-namespace ConsoleClient
+namespace ConsoleClient.UI
 {
     internal class Program
     {
@@ -15,11 +17,10 @@ namespace ConsoleClient
             kernel.Bind<IFileStorer>().To<FileStorer>();
             kernel.Bind<ILogger>().To<Logger>();
             kernel.Bind<IConfigurator>().To<Configurator>().InSingletonScope();
-            kernel.Bind<IAgeProvider>().To<AgeProvider>().InSingletonScope();
 
             var config = kernel.Get<IConfigurator>();
-            config.Set("AgeTreshold",10);
-            config.Set(DataConfigConstants.FILEPATH,"data.csv");
+            config.Set("AgeTreshold", 10);
+            config.Set(DataConfigConstants.FILEPATH, "data.csv");
             config.Set("Separator", ",");
 
             var manager = kernel.Get<IPersonManager>();

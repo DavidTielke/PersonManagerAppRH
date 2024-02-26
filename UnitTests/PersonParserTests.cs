@@ -1,4 +1,6 @@
-﻿namespace UnitTests
+﻿using ConsoleClient.Data;
+
+namespace UnitTests
 {
     [TestFixture]
     public class PersonParserTests

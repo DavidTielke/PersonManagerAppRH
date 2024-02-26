@@ -1,4 +1,4 @@
-using ConsoleClient;
+using ConsoleClient.Data;
 
 namespace UnitTests.Mocks
 {

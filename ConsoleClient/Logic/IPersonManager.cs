@@ -1,4 +1,4 @@
-﻿namespace ConsoleClient;
+﻿namespace ConsoleClient.Logic;
 
 public interface IPersonManager
 {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ConsoleClient
+namespace ConsoleClient.Data
 {
     public class PersonRepository : IPersonRepository
     {
@@ -11,16 +11,19 @@ namespace ConsoleClient
         private IPersonParser _personParser;
         private readonly IConfigurator _config;
         private readonly IPersonConverter _converter;
+        private readonly IPersonDataValidator _validator;
 
-        public PersonRepository(IFileStorer fileStorer, 
-            IPersonParser personParser, 
+        public PersonRepository(IFileStorer fileStorer,
+            IPersonParser personParser,
             IConfigurator config,
-            IPersonConverter converter)
+            IPersonConverter converter, 
+            IPersonDataValidator validator)
         {
             _fileStorer = fileStorer;
             _personParser = personParser;
             _config = config;
             _converter = converter;
+            _validator = validator;
         }
 
         private string Path
@@ -33,8 +36,15 @@ namespace ConsoleClient
 
         public void Insert(Person person)
         {
-            var csvData = _converter.ToCsv(person);
+            _validator.AssertForInsert(person);
+
             var allLines = _fileStorer.LoadAllLines(Path);
+
+            var allPersons = _personParser.ParseFromCSV(allLines);
+            var nextIndex = allPersons.Max(p => p.Id) + 1;
+            person.Id = nextIndex;
+
+            var csvData = _converter.ToCsv(person);
             allLines.Add(csvData);
             _fileStorer.WriteAllLines(Path, allLines);
         }

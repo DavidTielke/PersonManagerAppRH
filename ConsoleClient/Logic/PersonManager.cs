@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
 using System.Text;
+using ConsoleClient.Data;
 
-namespace ConsoleClient
+namespace ConsoleClient.Logic
 {
     public class PersonManager : IPersonManager
     {
         private IPersonRepository _personRepository;
         private readonly int AGE_TRESHOLD;
 
-        public PersonManager(IPersonRepository personRepository, 
+        public PersonManager(IPersonRepository personRepository,
             IConfigurator config)
         {
             _personRepository = personRepository;

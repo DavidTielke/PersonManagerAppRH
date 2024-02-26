@@ -1,4 +1,4 @@
-﻿namespace ConsoleClient;
+﻿namespace ConsoleClient.Data;
 
 public interface IPersonRepository
 {
