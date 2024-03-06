@@ -1,4 +1,5 @@
 using BlazorClient.Components;
+using Data2;
 using DavidTielke.PersonManagerApp.Backend.Data.DataAccess;
 using DavidTielke.PersonManagerApp.Backend.Data.FileStorage;
 using DavidTielke.PersonManagerApp.Backend.PersonManagement;
@@ -18,10 +19,10 @@ namespace BlazorClient
                 .AddInteractiveServerComponents();
             // Dependency Injection Setup
             builder.Services.AddScoped<IPersonManager, PersonManager>();
-            //builder.Services.AddScoped<IPersonRepository, PersonRepository>();
+            builder.Services.AddScoped<IPersonRepository, PersonMemRepository>();
             //builder.Services.AddScoped<IPersonConverter, PersonConverter>();
             //builder.Services.AddScoped<IPersonParser, PersonParser>();
-            //builder.Services.AddScoped<IFileStorer, FileStorer>();
+            builder.Services.AddScoped<IFileStorer, FileStorer>();
             //builder.Services.AddScoped<IPersonDataValidator, PersonDataValidator>();
             builder.Services.AddScoped<IPersonLogicValidator, PersonLogicValidator>();
             builder.Services.AddScoped<DavidTielke.PersonManagerApp.CrossCutting.Logging.ILogger, Logger>();
@@ -32,7 +33,7 @@ namespace BlazorClient
             var app = builder.Build();
 
             var config = app.Services.GetService<IConfigurator>();
-            config.Set("AgeTreshold", 10);
+            config.Set("AgeTreshold", 18);
             config.Set(DataConfigConstants.FILEPATH, "data.csv");
             config.Set("Separator", ",");
 
