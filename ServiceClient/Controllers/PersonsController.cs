@@ -1,4 +1,4 @@
-using DavidTielke.PersonManagerApp.Backend.Logic.PersonManagement;
+using DavidTielke.PersonManagerApp.Backend.PersonManagement;
 using DavidTielke.PersonManagerApp.CrossCutting.DataClasses;
 using Microsoft.AspNetCore.Mvc;
 

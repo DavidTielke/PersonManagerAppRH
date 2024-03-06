@@ -1,7 +1,7 @@
 using BlazorClient.Components;
 using DavidTielke.PersonManagerApp.Backend.Data.DataAccess;
 using DavidTielke.PersonManagerApp.Backend.Data.FileStorage;
-using DavidTielke.PersonManagerApp.Backend.Logic.PersonManagement;
+using DavidTielke.PersonManagerApp.Backend.PersonManagement;
 using DavidTielke.PersonManagerApp.CrossCutting.Configuration;
 using DavidTielke.PersonManagerApp.CrossCutting.Logging;
 
@@ -18,11 +18,11 @@ namespace BlazorClient
                 .AddInteractiveServerComponents();
             // Dependency Injection Setup
             builder.Services.AddScoped<IPersonManager, PersonManager>();
-            builder.Services.AddScoped<IPersonRepository, PersonRepository>();
-            builder.Services.AddScoped<IPersonConverter, PersonConverter>();
-            builder.Services.AddScoped<IPersonParser, PersonParser>();
-            builder.Services.AddScoped<IFileStorer, FileStorer>();
-            builder.Services.AddScoped<IPersonDataValidator, PersonDataValidator>();
+            //builder.Services.AddScoped<IPersonRepository, PersonRepository>();
+            //builder.Services.AddScoped<IPersonConverter, PersonConverter>();
+            //builder.Services.AddScoped<IPersonParser, PersonParser>();
+            //builder.Services.AddScoped<IFileStorer, FileStorer>();
+            //builder.Services.AddScoped<IPersonDataValidator, PersonDataValidator>();
             builder.Services.AddScoped<IPersonLogicValidator, PersonLogicValidator>();
             builder.Services.AddScoped<DavidTielke.PersonManagerApp.CrossCutting.Logging.ILogger, Logger>();
            

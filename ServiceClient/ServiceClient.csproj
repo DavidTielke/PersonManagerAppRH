@@ -12,7 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Backend\Backend.csproj" />
+    <ProjectReference Include="..\Backend\Logic.csproj" />
+    <ProjectReference Include="..\Data2\Data2.csproj" />
   </ItemGroup>
 
   <ItemGroup>

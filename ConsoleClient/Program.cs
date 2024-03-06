@@ -1,6 +1,7 @@
-﻿using DavidTielke.PersonManagerApp.Backend.Data.DataAccess;
+﻿using Data2;
+using DavidTielke.PersonManagerApp.Backend.Data.DataAccess;
 using DavidTielke.PersonManagerApp.Backend.Data.FileStorage;
-using DavidTielke.PersonManagerApp.Backend.Logic.PersonManagement;
+using DavidTielke.PersonManagerApp.Backend.PersonManagement;
 using DavidTielke.PersonManagerApp.CrossCutting.Configuration;
 using DavidTielke.PersonManagerApp.CrossCutting.Logging;
 using Ninject;
@@ -14,11 +15,11 @@ namespace DavidTielke.PersonManagerApp.Frontend.ConsoleClient
             var kernel = new StandardKernel();
 
             kernel.Bind<IPersonManager>().To<PersonManager>();
-            kernel.Bind<IPersonRepository>().To<PersonRepository>();
-            kernel.Bind<IPersonConverter>().To<PersonConverter>();
-            kernel.Bind<IPersonParser>().To<PersonParser>();
+            //kernel.Bind<IPersonRepository>().To<PersonRepository>();
+            //kernel.Bind<IPersonConverter>().To<PersonConverter>();
+            //kernel.Bind<IPersonParser>().To<PersonParser>();
             kernel.Bind<IFileStorer>().To<FileStorer>();
-            kernel.Bind<IPersonDataValidator>().To<PersonDataValidator>();
+            //kernel.Bind<IPersonDataValidator>().To<PersonDataValidator>();
             kernel.Bind<IPersonLogicValidator>().To<PersonLogicValidator>();
             kernel.Bind<ILogger>().To<Logger>();
             kernel.Bind<IConfigurator>().To<Configurator>().InSingletonScope();
