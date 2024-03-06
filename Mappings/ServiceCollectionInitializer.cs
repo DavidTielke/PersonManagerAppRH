@@ -4,10 +4,24 @@ using DavidTielke.PersonManagerApp.Backend.Data.FileStorage;
 using DavidTielke.PersonManagerApp.Backend.PersonManagement;
 using DavidTielke.PersonManagerApp.CrossCutting.Configuration;
 using DavidTielke.PersonManagerApp.CrossCutting.Logging;
+using Mappings;
 using Microsoft.Extensions.DependencyInjection;
+
+namespace Microsoft.Extensions.DependencyInjection
+{
+    public static class ServiceCollectionExtensions
+    {
+        public static void AddApplicationServices(this IServiceCollection source)
+        {
+            new ServiceCollectionInitializer().Initialize(source);
+        }
+
+    }
+}
 
 namespace Mappings
 {
+
     public class ServiceCollectionInitializer
     {
         public void Initialize(IServiceCollection serviceCollection)

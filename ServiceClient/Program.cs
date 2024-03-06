@@ -24,10 +24,8 @@ namespace ServiceClient
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddApplicationServices();
 
-
-            // Dependency Injection Setup
-            new ServiceCollectionInitializer().Initialize(builder.Services);
 
 
             var app = builder.Build();

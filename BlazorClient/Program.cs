@@ -19,7 +19,7 @@ namespace BlazorClient
             builder.Services.AddRazorComponents()
                 .AddInteractiveServerComponents();
 
-            new ServiceCollectionInitializer().Initialize(builder.Services);
+            builder.Services.AddApplicationServices();
 
             var app = builder.Build();
 

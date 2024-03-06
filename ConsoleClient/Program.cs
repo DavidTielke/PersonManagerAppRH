@@ -16,7 +16,7 @@ namespace DavidTielke.PersonManagerApp.Frontend.ConsoleClient
         {
             var serviceCollection = new ServiceCollection();
 
-            new ServiceCollectionInitializer().Initialize(serviceCollection);
+            serviceCollection.AddApplicationServices();
 
             var kernel = serviceCollection.BuildServiceProvider();
 
