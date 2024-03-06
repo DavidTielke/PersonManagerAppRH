@@ -1,8 +1,9 @@
 ﻿using DavidTielke.PersonManagerApp.Backend.Data.DataAccess;
+using DavidTielke.PersonManagerApp.Backend.PersonManagement;
 using DavidTielke.PersonManagerApp.CrossCutting.Configuration;
 using DavidTielke.PersonManagerApp.CrossCutting.DataClasses;
 
-namespace DavidTielke.PersonManagerApp.Backend.PersonManagement
+namespace DavidTielke.PersonManagerApp.Backend
 {
     public class PersonManager : IPersonManager
     {

@@ -2,12 +2,13 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System.ComponentModel;
-using Data2;
 using DavidTielke.PersonManagerApp.Backend.Data.DataAccess;
 using DavidTielke.PersonManagerApp.Backend.Data.FileStorage;
 using DavidTielke.PersonManagerApp.CrossCutting.Configuration;
 using DavidTielke.PersonManagerApp.CrossCutting.Logging;
+using DavidTielke.PersonManagerApp.Backend;
 using DavidTielke.PersonManagerApp.Backend.PersonManagement;
+using Mappings;
 
 namespace ServiceClient
 {
@@ -26,17 +27,8 @@ namespace ServiceClient
 
 
             // Dependency Injection Setup
-            builder.Services.AddScoped<IPersonManager, PersonManager>();
-            builder.Services.AddScoped<IPersonRepository, PersonMemRepository>();
-            //builder.Services.AddScoped<IPersonConverter, PersonConverter>();
-            //builder.Services.AddScoped<IPersonParser, PersonParser>();
-            //builder.Services.AddScoped<IFileStorer, FileStorer>();
-            //builder.Services.AddScoped<IPersonDataValidator, PersonDataValidator>();
-            builder.Services.AddScoped<IPersonLogicValidator, PersonLogicValidator>();
-            builder.Services.AddScoped<DavidTielke.PersonManagerApp.CrossCutting.Logging.ILogger, Logger>();
+            new ServiceCollectionInitializer().Initialize(builder.Services);
 
-            // Singleton-Registrierung für IConfigurator
-            builder.Services.AddSingleton<IConfigurator, Configurator>();
 
             var app = builder.Build();
 

@@ -1,10 +1,11 @@
 using BlazorClient.Components;
-using Data2;
+using DavidTielke.PersonManagerApp.Backend;
 using DavidTielke.PersonManagerApp.Backend.Data.DataAccess;
 using DavidTielke.PersonManagerApp.Backend.Data.FileStorage;
 using DavidTielke.PersonManagerApp.Backend.PersonManagement;
 using DavidTielke.PersonManagerApp.CrossCutting.Configuration;
 using DavidTielke.PersonManagerApp.CrossCutting.Logging;
+using Mappings;
 
 namespace BlazorClient
 {
@@ -17,18 +18,8 @@ namespace BlazorClient
             // Add services to the container.
             builder.Services.AddRazorComponents()
                 .AddInteractiveServerComponents();
-            // Dependency Injection Setup
-            builder.Services.AddScoped<IPersonManager, PersonManager>();
-            builder.Services.AddScoped<IPersonRepository, PersonMemRepository>();
-            //builder.Services.AddScoped<IPersonConverter, PersonConverter>();
-            //builder.Services.AddScoped<IPersonParser, PersonParser>();
-            builder.Services.AddScoped<IFileStorer, FileStorer>();
-            //builder.Services.AddScoped<IPersonDataValidator, PersonDataValidator>();
-            builder.Services.AddScoped<IPersonLogicValidator, PersonLogicValidator>();
-            builder.Services.AddScoped<DavidTielke.PersonManagerApp.CrossCutting.Logging.ILogger, Logger>();
-           
-            // Singleton-Registrierung für IConfigurator
-            builder.Services.AddSingleton<IConfigurator, Configurator>();
+
+            new ServiceCollectionInitializer().Initialize(builder.Services);
 
             var app = builder.Build();
 

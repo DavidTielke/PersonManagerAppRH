@@ -10,6 +10,13 @@
   <ItemGroup>
     <ProjectReference Include="..\CrossCutting\CrossCutting.csproj" />
     <ProjectReference Include="..\Data.Contract\Data.Contract.csproj" />
+    <ProjectReference Include="..\Logic.Contract\Logic.Contract.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Callbacks\" />
+    <Folder Include="DataClasses\" />
+    <Folder Include="Exceptions\" />
   </ItemGroup>
 
 </Project>

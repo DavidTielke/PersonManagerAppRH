@@ -1,4 +1,4 @@
-using DavidTielke.PersonManagerApp.Backend.PersonManagement;
+using DavidTielke.PersonManagerApp.Backend;
 using DavidTielke.PersonManagerApp.CrossCutting.DataClasses;
 
 namespace UnitTests;
